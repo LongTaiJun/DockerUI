@@ -1,17 +1,17 @@
 <div id="remove-modal" class="ui small modal transition">
 <i class="close icon"></i>
 <div class="header">
-    Remove Account: {{ vm.selectedAccount.username }}
+    删除账号: {{ vm.selectedAccount.username }}
 </div>
 <div class="content">
-    <p>Are you sure you want to remove this account?</p>
+    <p>你确认要删除账户?</p>
 </div>
 <div class="actions">
     <div class="ui negative button">
-        No
+        不，取消！
     </div>
     <div ng-click="vm.removeAccount()" class="ui positive right labeled icon button">
-        Yes
+        是，确认！
         <i class="checkmark icon"></i>
     </div>
 </div>
@@ -21,15 +21,15 @@
     <div class="two column row">
         <div class="left floated column">
             <div ng-click="vm.refresh()" class="ui small blue labeled icon button">
-                <i class="refresh icon"></i> Refresh
+                <i class="refresh icon"></i> 刷新
             </div>
             <div ui-sref="dashboard.addAccount" class="ui small green labeled icon button">
-                <i class="plus icon"></i> Add Account 
+                <i class="plus icon"></i> 添加账户 
             </div>
         </div>
         <div class="right aligned right floated column">
             <div class="ui small icon input">
-                <input ng-model="tableFilter" placeholder="Search accounts..." reset-field/>
+                <input ng-model="tableFilter" placeholder="查询账号信息..." reset-field/>
             </div>
         </div>
     </div>
@@ -40,9 +40,9 @@
                 <i class="info icon"></i>
                 <div class="content">
                     <div class="header">
-                        Accounts
+                        账户信息
                     </div>
-                    <p>There are no accounts.</p>
+                    <p>没有查询到账户资料.</p>
                 </div>
             </div>
         </div>
@@ -53,10 +53,10 @@
             <table class="ui sortable celled table" ng-show="vm.accounts">
                 <thead>
                     <tr>
-                        <th>Username</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Roles</th>
+                        <th>用户名</th>
+                        <th>姓氏</th>
+                        <th>名字</th>
+                        <th>角色</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -86,9 +86,9 @@
                 <i class="info icon"></i>
                 <div class="content">
                     <div class="header">
-                        Accounts
+                        账户信息
                     </div>
-                    <p>No accounts matched your filter query</p>
+                    <p>没有查询到您想要的信息</p>
                 </div>
             </div>
         </div>

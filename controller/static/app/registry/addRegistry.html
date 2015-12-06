@@ -2,7 +2,7 @@
 <div class="row" ng-show="vm.error">
     <div class="column">
         <div class="ui error message">
-            <div class="header">Error...</div>
+            <div class="header">错误信息...</div>
             <p>{{vm.error}}</p>
         </div>
     </div>
@@ -11,17 +11,17 @@
     <div class="column">
         <div class="ui segment">
             <div class="ui form" ng-submit="vm.addRegistry()" ng-method="post">
-                <h4 class="ui dividing header">Registry Details</h4>
-                <label>Name</label>
+                <h4 class="ui dividing header">仓库详细信息</h4>
+                <label>仓库名称</label>
                 <div class="field">
-                    <input type="text" name="name" ng-model="vm.name" placeholder="Name of registry (i.e. local)">
+                    <input type="text" name="name" ng-model="vm.name" placeholder="仓库名称 (local)">
                 </div>
-                <label>Registry Address</label>
+                <label>仓库地址</label>
                 <div class="field">
-                    <input type="text" name="addr" ng-model="vm.addr" placeholder="Registry Addr (i.e. http://10.1.2.3:5000)">
+                    <input type="text" name="addr" ng-model="vm.addr" placeholder="仓库地址 (http://127.0.0.1:5000)">
                 </div>
                 <div class="ui hidden divider"></div>
-                <div class="ui green submit button">Add Registry</div>
+                <div class="ui green submit button">新增仓库</div>
             </div>
         </div>
     </div>

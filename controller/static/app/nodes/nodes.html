@@ -2,12 +2,12 @@
 <div class="two column row">
     <div class="left floated column">
         <div ng-click="vm.refresh()" class="ui small blue labeled icon button">
-            <i class="refresh icon"></i> Refresh
+            <i class="refresh icon"></i> 刷新
         </div>
     </div>
     <div class="right aligned right floated column">
         <div class="ui small icon input">
-            <input ng-model="tableFilter" placeholder="Search nodes..." reset-field/>
+            <input ng-model="tableFilter" placeholder="查询节点..." reset-field/>
         </div>
     </div>
 </div>
@@ -15,7 +15,7 @@
 <div class="row" ng-show="vm.error">
     <div class="sixteen wide column">
         <div class="ui error message">
-            <div class="header">Error...</div>
+            <div class="header">错误信息...</div>
             <p>{{vm.error}}</p>
         </div>
     </div>
@@ -27,9 +27,9 @@
             <i class="info icon"></i>
             <div class="content">
                 <div class="header">
-                    Nodes
+                    节点信息
                 </div>
-                <p>There are no cluster nodes.</p>
+                <p>没有查询到任何集群节点</p>
             </div>
         </div>
     </div>
@@ -40,12 +40,12 @@
         <table class="ui sortable celled table" ng-show="vm.nodes">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>Containers</th>
-                    <th>Reserved CPUs</th>
-                    <th>Reserved Memory</th>
-                    <th>Labels</th>
+                    <th>节点名称</th>
+                    <th>地址信息</th>
+                    <th>容器数量</th>
+                    <th>预留的CPU能力</th>
+                    <th>预留的内存能力</th>
+                    <th>标签</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,9 +68,9 @@
             <i class="info icon"></i>
             <div class="content">
                 <div class="header">
-                    Nodes
+                    节点信息
                 </div>
-                <p>No nodes matched your filter query</p>
+                <p>没有查询到任何节点信息</p>
             </div>
         </div>
     </div>

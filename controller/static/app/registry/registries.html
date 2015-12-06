@@ -1,17 +1,17 @@
 <div class="ui small remove modal transition" style="margin-top: -98px;">
 <i class="close icon"></i>
 <div class="header">
-    Remove Registry: {{ vm.selectedRegistry.name }}
+    删除仓库: {{ vm.selectedRegistry.name }}
 </div>
 <div class="content">
-    <p>Are you sure you want to remove this registry?</p>
+    <p>您确认要删除此仓库吗?</p>
 </div>
 <div class="actions">
     <div class="ui negative button">
-        No
+        不，取消！
     </div>
     <div ng-click="vm.removeRegistry()" class="ui positive right labeled icon button">
-        Yes
+        是，确认！
         <i class="checkmark icon"></i>
     </div>
 </div>
@@ -21,16 +21,16 @@
     <div class="two column row">
         <div class="left floated column">
             <div ng-click="vm.refresh()" class="ui small blue labeled icon button">
-                <i class="refresh icon"></i> Refresh 
+                <i class="refresh icon"></i> 刷新 
             </div>
             <div ui-sref="dashboard.addRegistry" class="ui small green labeled icon button">
-                <i class="plus icon"></i> Add Registry 
+                <i class="plus icon"></i> 增加仓库 
             </div>
         </div>
 
         <div class="right aligned right floated column">
             <div class="ui small icon input">
-                <input ng-model="tableFilter" placeholder="Search registries..." reset-field/>
+                <input ng-model="tableFilter" placeholder="查询仓库信息..." reset-field/>
             </div>
         </div>
     </div>
@@ -41,9 +41,9 @@
                 <i class="info icon"></i>
                 <div class="content">
                     <div class="header">
-                        Registries
+                        仓库管理
                     </div>
-                    <p>There are no registries.</p>
+                    <p>没有找到任何仓库</p>
                 </div>
             </div>
         </div>
@@ -54,8 +54,8 @@
             <table class="ui sortable celled table">
                 <thead ng-hide="">
                     <tr>
-                        <th>Name</th>
-                        <th>Address</th>
+                        <th>仓库名称</th>
+                        <th>仓库地址</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -83,9 +83,9 @@
                 <i class="info icon"></i>
                 <div class="content">
                     <div class="header">
-                        Registries
+                        仓库管理
                     </div>
-                    <p>No registries matched your filter query</p>
+                    <p>没有检索到您想要的仓库信息</p>
                 </div>
             </div>
         </div>

@@ -1,17 +1,17 @@
 <div class="ui small destroy modal transition">
 <i class="close icon"></i>
 <div class="header">
-    Destroy Container: {{ vm.selectedContainerId | limitTo:12 }}
+    销毁容器: {{ vm.selectedContainerId | limitTo:12 }}
 </div>
 <div class="content">
-    <p>Are you sure you want to destroy this container?</p>
+    <p>您确认要销毁此容器吗？</p>
 </div>
 <div class="actions">
     <div class="ui negative button">
-        No
+        不，取消！
     </div>
     <div ng-click="vm.destroyContainer()" class="ui positive right labeled icon button">
-        Yes
+        是，确认！
         <i class="checkmark icon"></i>
     </div>
 </div>
@@ -20,17 +20,17 @@
 <div class="ui small restart modal transition" style="margin-top: -98px;">
     <i class="close icon"></i>
     <div class="header">
-        Restart Container: {{ vm.selectedContainerId | limitTo:12 }}
+        重启容器: {{ vm.selectedContainerId | limitTo:12 }}
     </div>
     <div class="content">
-        <p>Are you sure you want to restart this container?</p>
+        <p>您确认要重启此容器吗?</p>
     </div>
     <div class="actions">
         <div class="ui negative button">
-            No
+            不，取消！
         </div>
         <div ng-click="vm.restartContainer()" class="ui positive right labeled icon button">
-            Yes
+            是，确认！
             <i class="checkmark icon"></i>
         </div>
     </div>
@@ -39,17 +39,17 @@
 <div class="ui small stop modal transition" style="margin-top: -98px;">
     <i class="close icon"></i>
     <div class="header">
-        Stop Container: {{ vm.selectedContainerId | limitTo:12 }}
+        停止容器: {{ vm.selectedContainerId | limitTo:12 }}
     </div>
     <div class="content">
-        <p>Are you sure you want to stop this container?</p>
+        <p>您确认要停止此容器吗?</p>
     </div>
     <div class="actions">
         <div class="ui negative button">
-            No
+            不，取消！
         </div>
         <div ng-click="vm.stopContainer()" class="ui positive right labeled icon button">
-            Yes
+            是，确认！
             <i class="checkmark icon"></i>
         </div>
     </div>
@@ -58,17 +58,17 @@
 <div class="ui small pause modal transition" style="margin-top: -98px;">
     <i class="close icon"></i>
     <div class="header">
-        Pause Container: {{ vm.selectedContainerId | limitTo:12 }}
+        暂停容器: {{ vm.selectedContainerId | limitTo:12 }}
     </div>
     <div class="content">
-        <p>Are you sure you want to pause this container?</p>
+        <p>您确认要暂停此容器吗？</p>
     </div>
     <div class="actions">
         <div class="ui negative button">
-            No
+            不，取消！
         </div>
         <div ng-click="vm.pauseContainer()" class="ui positive right labeled icon button">
-            Yes
+            是，确认！
             <i class="checkmark icon"></i>
         </div>
     </div>
@@ -84,16 +84,16 @@
                             <h3 class="ui header">
                                 <div class="content">
                                     <i class="ui circle icon" ng-class="{'yellow': (vm.container.State.Running && vm.container.State.Paused), 'green': (vm.container.State.Running && !vm.container.State.Paused), 'red': !vm.container.State.Running}"></i>
-                                    {{ vm.container.Name.split("/")[1] }}
-                                    <div class="sub header">{{ vm.container.Config.Image }}</div>
+                                    容器名称：{{ vm.container.Name.split("/")[1] }}
+                                    <div class="sub header">镜像：{{ vm.container.Config.Image }}</div>
                                 </div>
                             </h3>
                         </div>
                         <div class="floated right aligned right column">
                             <h3 class="ui header">
                                 <div class="content">
-                                    <div class="header" ng-show="vm.container.State.Running">Started {{ vm.container.State.StartedAt | fromCalendar }}</div>
-                                    <div class="header" ng-hide="vm.container.State.Running">Finished {{ vm.container.State.FinishedAt | fromCalendar }}</div>
+                                    <div class="header" ng-show="vm.container.State.Running">Started {{ vm.container.State.StartedAt | fromCalendar }}启动</div>
+                                    <div class="header" ng-hide="vm.container.State.Running">Finished {{ vm.container.State.FinishedAt | fromCalendar }}终止</div>
                                 </div>
                             </h3>
                         </div>
@@ -102,61 +102,61 @@
                     <div class="row">
                         <div class="column">
                             <div ng-click="vm.showPauseContainerDialog()" class="ui yellow small labeled icon button" ng-show="vm.container.State.Running && !vm.container.State.Paused">
-                                <i class="pause icon"></i> Pause 
+                                <i class="pause icon"></i> 暂停容器 
                             </div>
                             <div ng-click="vm.unpauseContainer(vm.container)" class="ui green small labeled icon button" ng-show="vm.container.State.Paused">
-                                <i class="play icon"></i> Unpause 
+                                <i class="play icon"></i> 恢复容器 
                             </div>
                             <div ng-click="vm.showStopContainerDialog()" class="ui small labeled icon button">
-                                <i class="stop icon"></i> Stop 
+                                <i class="stop icon"></i> 停止容器 
                             </div>
                             <div ng-click="vm.showRestartContainerDialog()" class="ui small green labeled icon button">
-                                <i class="refresh icon"></i> Restart 
+                                <i class="refresh icon"></i> 重启容器 
                             </div>
                             <div ng-click="vm.showDestroyContainerDialog()" class="ui small red labeled icon button">
-                                <i class="delete icon"></i> Destroy 
+                                <i class="delete icon"></i> 销毁容器 
                             </div>
                             <div ui-sref="dashboard.stats({id: vm.container.Id})" class="ui small orange labeled icon button">
-                                <i class="bar chart icon"></i> Stats
+                                <i class="bar chart icon"></i> 监控容器
                             </div>
                             <div ui-sref="dashboard.logs({id: vm.container.Id})" class="ui small purple labeled icon button">
-                                <i class="file icon"></i> Logs 
+                                <i class="file icon"></i> 容器日志 
                             </div>
                             <div ui-sref="dashboard.exec({id: vm.container.Id})" class="ui small labeled icon button">
-                                <i class="terminal icon"></i> Console
+                                <i class="terminal icon"></i> 控制中心
                             </div>
                         </div>
                     </div>
                     <div class="three column row">
                         <div class="column">
-                            <h4 class="ui dividing header">Container Configuration</h4>
+                            <h4 class="ui dividing header">容器配置</h4>
                             <div class="ui two column grid">
                                 <div class="column">
                                     <div class="content">
-                                        <span class="header"><b>Container ID</b></span>
+                                        <span class="header"><b>容器 ID</b></span>
                                         <div class="description">{{ vm.container.Id | limitTo:12 }}</div>
                                     </div>
                                 </div>
                                 <div class="column">
                                     <div class="content">
-                                        <span class="header"><b>Command</b></span>
+                                        <span class="header"><b>指令</b></span>
                                         <pre class="logs">{{ vm.container.Config.Cmd.join(" ") }}</pre>
                                     </div>
                                 </div>
                                 <div class="column">
                                     <div class="content">
-                                        <span class="header"><b>Hostname</b></span>
+                                        <span class="header"><b>主机</b></span>
                                         <div class="description">{{ vm.container.Config.Hostname }}</div>
                                     </div>
                                 </div>
                                 <div class="column">
                                     <div class="content">
-                                        <span class="header"><b>Domain Name</b></span>
+                                        <span class="header"><b>域名</b></span>
                                         <div class="description">{{ vm.container.Config.Domainname || "N/A" }}</div>
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="ui dividing header">Port Configuration</h4>
+                            <h4 class="ui dividing header">端口配置</h4>
                             <div class="ui divided list" ng-show="vm.container.NetworkSettings.Ports"> 
                                 <div class="item" ng-repeat="(k, values) in vm.container.NetworkSettings.Ports">
                                     <div ng-show="values.length === 0 || values == null"><div class="ui horizontal label">Internal</div> {{ k }}</div>
@@ -167,34 +167,34 @@
                             </div>
                         </div>
                         <div class="column">
-                            <h4 class="ui dividing header">Swarm Node</h4>
+                            <h4 class="ui dividing header">集群节点</h4>
                             <div class="ui two column grid">
                                 <div class="column">
                                     <div class="ui compact">
-                                        <span class="header"><b>Name</b></span>
+                                        <span class="header"><b>节点名称</b></span>
                                         <div class="description">{{ vm.container.Node.Name }}</div>
                                     </div>
                                 </div>
                                 <div class="column">
                                     <div class="ui compact">
-                                        <span class="header"><b>Host</b></span>
+                                        <span class="header"><b>主机</b></span>
                                         <div class="description">{{ vm.container.Node.Addr }}</div>
                                     </div>
                                 </div>
                                 <div class="column">
                                     <div class="ui compact">
-                                        <span class="header"><b>CPUs</b></span>
+                                        <span class="header"><b>CPU能力</b></span>
                                         <div class="description">{{ vm.container.Node.Cpus || "&infin;" }}</div>
                                     </div>
                                 </div>
                                 <div class="column">
                                     <div class="ui compact">
-                                        <span class="header"><b>Memory</b></span>
+                                        <span class="header"><b>内存能力</b></span>
                                         <div class="description">{{ (vm.container.Node.Memory / 1024 / 1024 | number:0) || "&infin;" }} MB</div>
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="ui dividing header" ng-show="vm.container.HostConfig.Dns">User Defined Container DNS</h4>
+                            <h4 class="ui dividing header" ng-show="vm.container.HostConfig.Dns">用户自定义容器DNS</h4>
                             <div class="ui divided list" ng-show="vm.container.HostConfig.Dns">
                                 <div class="item">
                                         <pre ng-repeat="d in vm.container.HostConfig.Dns">{{ d }}</pre>
@@ -202,9 +202,9 @@
                             </div>
                         </div>
                         <div class="column">
-                            <h4 class="ui dividing header">Environment</h4>
+                            <h4 class="ui dividing header">环境</h4>
                             <div ng-show="vm.container.Config.Env.length === 0">
-                                <div>No environment variables configured</div>
+                                <div>没有配置环境</div>
                             </div>
                             <div class="item" ng-repeat="e in vm.container.Config.Env">
                                 <pre class="logs">{{ e }}</pre>
@@ -213,12 +213,12 @@
                     </div>
                     <div class="row" ng-show="vm.links.length>0">
                         <div class="column">
-                            <h4 class="ui dividing header">Container Links</h4>
+                            <h4 class="ui dividing header">容器链接</h4>
                             <table class="ui sortable celled table">
                                 <thead>
                                     <tr>
-                                        <th>Container Name</th>
-                                        <th>Link Name</th>
+                                        <th>容器名称</th>
+                                        <th>链接名称</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -231,12 +231,12 @@
                     </div>
                     <div class="row" ng-hide="vm.isEmptyObject(vm.container.Volumes)">
                         <div class="column">
-                            <h4 class="ui dividing header">Volume</h4>
+                            <h4 class="ui dividing header">存储空间</h4>
                             <table class="ui sortable celled table">
                                 <thead>
                                     <tr>
-                                        <th>Volume</th>
-                                        <th>Host Path</th>
+                                        <th>存储</th>
+                                        <th>主机路径</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -250,7 +250,7 @@
                     </div>
                     <div class="row" ng-show="vm.top">
                         <div class="column">
-                            <h4 class="ui dividing header">Processes</h4>
+                            <h4 class="ui dividing header">进程</h4>
                             <table id="toptable" class="ui sortable celled table">
                                 <thead>
                                     <tr>

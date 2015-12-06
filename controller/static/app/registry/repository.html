@@ -11,7 +11,7 @@
                                 <i class="tag icon"></i> {{vm.selectedRepository.tags.length}}
                             </div>
                             <div class="label">
-                                Tags
+                                标签
                             </div>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                                 <i class="block layout icon"></i> {{vm.selectedRepository.layers.length}}
                             </div>
                             <div class="label">
-                                Layers
+                                层
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
 
             <div class="ui divider"></div>
 
-            <h2 class="ui header">Layers</h2>
+            <h2 class="ui header">层</h2>
             <div class="ui segment" ng-repeat="l in vm.selectedRepository.layers">
                 <div class="ui right floated header">
                     <div class="ui green label" ng-show="l.size">{{l.size / 1048576 | number:2}} MB</div>

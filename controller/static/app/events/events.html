@@ -1,17 +1,17 @@
 <div id="clear-modal" class="ui small modal transition">
     <i class="close icon"></i>
     <div class="header">
-        Clear Events
+        清理日志事件
     </div>
     <div class="content">
-        <p>Are you sure you want to clear all events?</p>
+        <p>您确认要清理所有的日志事件吗?</p>
     </div>
     <div class="actions">
         <div class="ui negative button">
-            No
+            不，取消！
         </div>
         <div ng-click="vm.clearEvents()" class="ui positive right labeled icon button">
-            Yes
+            是，确认！
             <i class="checkmark icon"></i>
         </div>
     </div>
@@ -20,15 +20,15 @@
     <div class="two column row">
         <div class="left floated column">
             <div ng-click="vm.refresh()" class="ui small blue labeled icon button">
-                <i class="refresh icon"></i> Refresh
+                <i class="refresh icon"></i> 刷新
             </div>
             <div ng-click="vm.showClearEventsDialog()" class="ui small red labeled icon button">
-                <i class="trash icon"></i> Clear Events
+                <i class="trash icon"></i> 清理日志事件
             </div>
         </div>
         <div class="right aligned right floated column">
             <div class="ui small icon input">
-                <input ng-model="tableFilter" placeholder="Search events..." reset-field/>
+                <input ng-model="tableFilter" placeholder="查询日志事件..." reset-field/>
             </div>
         </div>
     </div>
@@ -39,9 +39,9 @@
                 <i class="info icon"></i>
                 <div class="content">
                     <div class="header">
-                        Events
+                        日志事件信息
                     </div>
-                    <p>There are no events recorded.</p>
+                    <p>没有查询到日志信息.</p>
                 </div>
             </div>
         </div>
@@ -52,13 +52,13 @@
             <table class="ui sortable celled table" ng-show="vm.events">
                 <thead>
                     <tr>
-                        <th>Time</th>
-                        <th>User</th>
-                        <th>Type</th>
-                        <th>Message</th>
-                        <th>Container</th>
-                        <th>Node</th>
-                        <th>Tags</th>
+                        <th>时间</th>
+                        <th>用户</th>
+                        <th>类型</th>
+                        <th>消息</th>
+                        <th>容器</th>
+                        <th>节点</th>
+                        <th>标签</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,9 +82,9 @@
                 <i class="info icon"></i>
                 <div class="content">
                     <div class="header">
-                        Events
+                        日志事件信息
                     </div>
-                    <p>No events matched your filter query</p>
+                    <p>没有查询到您想要的日志事件信息。</p>
                 </div>
             </div>
         </div>
